@@ -1,0 +1,53 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+   <parent>
+      <artifactId>SocketDB</artifactId>
+      <groupId>no.socketdb</groupId>
+      <version>0.1</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>no.socket.db.backend</groupId>
+  <artifactId>SocketDbBackend</artifactId>
+  <version>0.1</version>
+  <name>SocketDbBackend Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  	<properties>
+		<start-class>no.connectdb.config.WebConfig</start-class>
+        <java.version>1.8</java.version>
+    </properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-data-mongodb</artifactId>
+		<version>1.2.0.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-web</artifactId>
+		<version>1.2.0.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-websocket</artifactId>
+		<version>1.2.0.RELEASE</version>
+	</dependency>
+	<dependency>
+		<groupId>org.json</groupId>
+		<artifactId>json</artifactId>
+	</dependency>
+  </dependencies>
+  	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>1.2.0.RELEASE</version>
+			</plugin>
+		</plugins>
+	</build>
+</project>

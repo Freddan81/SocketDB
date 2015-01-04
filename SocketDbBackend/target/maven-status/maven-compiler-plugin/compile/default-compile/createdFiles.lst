@@ -1,0 +1,5 @@
+no\connectdb\config\SocketDB.class
+no\connectdb\config\DrawRepository.class
+no\connectdb\config\WebSocketConfig.class
+no\connectdb\config\WebConfig.class
+no\connectdb\model\Draw.class

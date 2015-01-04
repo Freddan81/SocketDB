@@ -1,0 +1,56 @@
+<head>
+    <script src="sockjs-0.3.4.js"></script>
+    <script src="stomp.js"></script>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='SocketDb.js'></script>
+<script>
+
+
+
+	jQuery(document).ready(function($) {
+	
+		var connect = new ConnectDB("", "insert", "draw", function(snapshot) {
+			x = snapshot.x;
+			y = snapshot.y;
+			var color = snapshot.color;
+	        var size = '10px';
+	        $("body").append(
+	            $('<div></div>')
+	                .css('position', 'absolute')
+	                .css('left', x + 'px')
+	                .css('top', y + 'px')
+	                .css('width', size)
+	                .css('height', size)
+	                .css('background-color', color)
+	        );
+		});
+	var down = false;
+	$(document).mousedown(function() {
+		down = true;
+	}).mouseup(function() {
+		down = false;  
+	});
+ $('body').mousemove(function(e) {
+	if (down) {
+		var offset = $(this).offset();
+		connect.insert({ 'type': 'draw', 'x': e.clientX - offset.left, 'y' :e.clientY - offset.top, 'color' : $('#color').val() });
+	}
+	
+
+     
+    
+});
+
+ 
+});
+	
+</script>
+</head>
+<body>
+<select id="color">
+	<option value="#ff0000" selected>Rød</option>
+	<option value="#00ff00" >Grønn</option>
+	<option value="#0000ff" >Blå</option>
+	<option value="#ffffff" >Hvit</option>
+</select>
+</body>

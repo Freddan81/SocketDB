@@ -1,0 +1,34 @@
+<head>
+    <script src="sockjs-0.3.4.js"></script>
+    <script src="stomp.js"></script>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='SocketDb.js'></script>
+<script>
+
+jQuery(document).ready(function($) {
+
+	var connect = new ConnectDB("", "insert", "chat", function(snapshot) {
+		tekst = snapshot.text;
+        $("#chat").append(
+            $('<div>' + tekst + '</div>')
+        );
+	});
+	
+	$('#tekst').keypress(function(e) {
+	    if(e.which == 13) {
+	        connect.insert({'type': 'chat', 'text': $('#tekst').val() });
+	        $('#tekst').val('');
+	    }
+	});
+
+ 
+});
+	
+</script>
+</head>
+<body>
+<div id="chat" style="height:400px;background-color:lightgrey">
+
+</div>
+<input type="text" id="tekst"/>
+</body>
