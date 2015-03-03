@@ -33,7 +33,7 @@
  $('body').mousemove(function(e) {
 	if (down) {
 		var offset = $(this).offset();
-		connect.insert({ 'type': 'draw', 'x': e.clientX - offset.left, 'y' :e.clientY - offset.top, 'color' : $('#color').val() });
+		connect.insert({ 'x': e.clientX - offset.left, 'y' :e.clientY - offset.top, 'color' : $('#color').val() });
 	}
 	
 

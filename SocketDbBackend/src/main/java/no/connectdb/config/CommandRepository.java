@@ -21,8 +21,16 @@ public class CommandRepository {
 		ChangeHandler.get().invoke("insert", saved);
 	}
 	
+	public void update(Json update) {
+		Json old = jsonRepository.findOne(update.getId());
+		old.setObject(update.getObject());
+		jsonRepository.save(old);
+		ChangeHandler.get().invoke("update", old);
+	}
+	
 	public void allInserted() {
 		List<Json> all = jsonRepository.findAll();
+		System.out.println("Found " + all.size() + " elements");
 		for (Json a : all) {
 			ChangeHandler.get().invoke("insert_old", a);
 		}

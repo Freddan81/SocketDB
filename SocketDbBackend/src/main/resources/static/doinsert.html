@@ -1,0 +1,29 @@
+<head>
+    <script src="sockjs-0.3.4.js"></script>
+    <script src="stomp.js"></script>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='SocketDb.js'></script>
+<script>
+var connect;
+
+jQuery(document).ready(function($) {
+
+	connect = new ConnectDB("", "insert", "updateTest", function(snapshot) {
+	});
+});
+ 
+function insert() {
+	connect.insert({ 'test': $('#val').val()});
+}
+	
+function update() {
+	connect.update($('#id').val(), { 'test': $('#val').val()});
+}
+</script>
+</head>
+<body>
+<input type="text" id="id"/>
+<input type="text" id="val"/>
+<button id="send" onclick="insert();">Insert</button>
+<button id="send" onclick="update();">Update</button>
+</body>

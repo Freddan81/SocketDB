@@ -16,7 +16,7 @@ jQuery(document).ready(function($) {
 	
 	$('#tekst').keypress(function(e) {
 	    if(e.which == 13) {
-	        connect.insert({'type': 'chat', 'text': $('#tekst').val() });
+	        connect.insert({'text': $('#tekst').val() });
 	        $('#tekst').val('');
 	    }
 	});
