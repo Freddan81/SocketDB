@@ -1,0 +1,21 @@
+<head>
+    <script src="sockjs-0.3.4.js"></script>
+    <script src="stomp.js"></script>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='SocketDb.js'></script>
+<script>
+
+	var count = 0;
+jQuery(document).ready(function($) {
+ 	var connect = new ConnectDB("", "insert", "img", function(snapshot) {
+ 		$('#image').prepend('<img id="img' + count + '" style="width:200px"/>')
+		$('#img' + count).attr('src', "data:image/jpg;base64,"+snapshot.file);
+		count = count + 1;
+	});
+});
+	
+</script>
+</head>
+<body>
+<div id="image"></div>
+</body>

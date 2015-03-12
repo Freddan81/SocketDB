@@ -1,0 +1,21 @@
+<head>
+    <script src="sockjs-0.3.4.js"></script>
+    <script src="stomp.js"></script>
+    <script src='http://code.jquery.com/jquery-1.9.1.min.js'></script>
+    <script src='SocketDb.js'></script>
+    <script src='dropzone.js'></script>
+<script>
+
+jQuery(document).ready(function($) {
+
+	$("div#drop").dropzone({ url: "/upload" });
+
+});
+	
+</script>
+</head>
+<body>
+<div id="drop" style="height:100%;width:100%;background-color:lightgrey">
+
+</div>
+</body>

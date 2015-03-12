@@ -2,8 +2,8 @@ package no.connectdb.config;
 
 import java.util.List;
 
+import no.connectdb.handlers.ChangeHandler;
 import no.connectdb.model.Json;
-import no.socketdb.listener.handlers.ChangeHandler;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -13,6 +13,7 @@ public class CommandRepository {
 
 	@Autowired
 	private JsonRepository jsonRepository;	
+//	private ESRepository jsonRepository;
 	
 	public void save(Json save) {
 		long count = jsonRepository.count();
@@ -29,8 +30,8 @@ public class CommandRepository {
 	}
 	
 	public void allInserted() {
-		List<Json> all = jsonRepository.findAll();
-		System.out.println("Found " + all.size() + " elements");
+		Iterable<Json> all = jsonRepository.findAll();
+//		System.out.println("Found " + all.size() + " elements");
 		for (Json a : all) {
 			ChangeHandler.get().invoke("insert_old", a);
 		}

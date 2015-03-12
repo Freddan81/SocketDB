@@ -2,7 +2,11 @@ package no.connectdb.model;
 
 import org.json.JSONObject;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.elasticsearch.annotations.Document;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
+@Document(indexName="json")
 public class Json {
 
 	@Id
@@ -10,10 +14,12 @@ public class Json {
 	
 	private String type;
 	
+	@JsonSerialize(converter = ConvertJson.class)
 	private JSONObject object = new JSONObject();
 
 	public Json() {
 	}
+
 
 	public Json(String type, JSONObject object) {
 		this.type = type;
